@@ -1,5 +1,5 @@
 package com.example.activitytest;
-
+/*一步退出程序*/
 import android.app.Activity;
 
 import java.util.ArrayList;
