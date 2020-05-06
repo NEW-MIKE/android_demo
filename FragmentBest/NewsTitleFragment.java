@@ -104,6 +104,14 @@ public class NewsTitleFragment extends Fragment {
             News news = mNewsList.get(position);
             holder.newsTitleText.setText(news.getTitle());
         }
+// 此处是替换的函数
+//    private void replaceFragment(Fragment fragment) {
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction transaction = fragmentManager.beginTransaction();
+//        transaction.replace(R.id.right_layout, fragment);
+//        transaction.addToBackStack(null);
+//        transaction.commit();
+//    }
 
         @Override
         public int getItemCount() {
