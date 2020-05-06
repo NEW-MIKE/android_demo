@@ -10,7 +10,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("BaseActivity", getClass().getSimpleName());
+        Log.d("BaseActivity", getClass().getSimpleName());/*知晓当前在那个活动里面。*/
         ActivityCollector.addActivity(this);
     }
 
