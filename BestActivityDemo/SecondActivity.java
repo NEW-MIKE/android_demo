@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class SecondActivity extends BaseActivity {
 
-    public static void actionStart(Context context, String data1, String data2) {
+    public static void actionStart(Context context, String data1, String data2) {/*启动活动的最优的写法*/
         Intent intent = new Intent(context, SecondActivity.class);
         intent.putExtra("param1", data1);
         intent.putExtra("param2", data2);
