@@ -75,7 +75,7 @@ public abstract class MyAdapter<T> extends BaseAdapter {
         if (mData != null) {
             mData.remove(data);
         }
-        notifyDataSetChanged();
+         notifyDataSetChanged();/*通知列表进行更新且不用返回到顶层*/
     }
 
     public void remove(int position) {
@@ -93,7 +93,7 @@ public abstract class MyAdapter<T> extends BaseAdapter {
     }
 
 
-    public static class ViewHolder {
+    public static class ViewHolder {/*用于存储控件缓存，不必每次都要调用，提升效率*/
 
         private SparseArray<View> mViews;   //存储ListView 的 item中的View
         private View item;                  //存放convertView
