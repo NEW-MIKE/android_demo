@@ -39,6 +39,18 @@ public class MsgAdapter extends RecyclerView.Adapter<MsgAdapter.ViewHolder> {/*�
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {/*加载布局和布局内部的对象*/
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.msg_item, parent, false);
+        /*
+        在此处可以添加点击事件。
+            final ViewHolder holder = new ViewHolder(view);
+            holder.fruitImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                Fruit fruit = mFruitList.get(position);
+                Toast.makeText(v.getContext(), "you clicked image " + fruit.getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        */
         return new ViewHolder(view);
     }
 
