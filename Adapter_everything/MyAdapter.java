@@ -1,5 +1,7 @@
 package jay.com.listviewdemo4;
-
+/*总的思想就是，在父布局中，添加适配器连接子布局的控件，构造一个集合，利用集合的数据来刷新控件的显示。
+适配器的作用就是利用集合，将要显示的数据源和显示的格式整合成为一个整体，加载到父布局中去。
+利用的是集合的数据结构，在每一次中形成一个对象，所有对象形成集合。*/
 import android.content.Context;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -47,11 +49,11 @@ public abstract class MyAdapter<T> extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = ViewHolder.bind(parent.getContext(), convertView, parent, mLayoutRes
                 , position);
-        bindView(holder, getItem(position));
+        bindView(holder, getItem(position));/*制造新的控件显示*/
         return holder.getItemView();
     }
 
-    public abstract void bindView(ViewHolder holder, T obj);
+    public abstract void bindView(ViewHolder holder, T obj);/*统一抽象接口，在实现的时候表现出灵活*/
 
     //添加一个元素
     public void add(T data) {
@@ -104,7 +106,7 @@ public abstract class MyAdapter<T> extends BaseAdapter {
         private ViewHolder(Context context, ViewGroup parent, int layoutRes) {
             mViews = new SparseArray<>();
             this.context = context;
-            View convertView = LayoutInflater.from(context).inflate(layoutRes, parent, false);
+            View convertView = LayoutInflater.from(context).inflate(layoutRes, parent, false);/*主的对象一直传递到此处，布局导入*/
             convertView.setTag(this);
             item = convertView;/*对布局进行缓存，不必每次都创建布局实例*/
         }
@@ -124,7 +126,7 @@ public abstract class MyAdapter<T> extends BaseAdapter {
         }
 
         @SuppressWarnings("unchecked")
-        public <T extends View> T getView(int id) {
+        public <T extends View> T getView(int id) {/*将获取控件的函数进行封装转换，并缓存下来*/
             T t = (T) mViews.get(id);
             if (t == null) {
                 t = (T) item.findViewById(id);
