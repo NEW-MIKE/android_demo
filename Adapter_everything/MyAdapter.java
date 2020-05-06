@@ -106,7 +106,7 @@ public abstract class MyAdapter<T> extends BaseAdapter {
             this.context = context;
             View convertView = LayoutInflater.from(context).inflate(layoutRes, parent, false);
             convertView.setTag(this);
-            item = convertView;
+            item = convertView;/*对布局进行缓存，不必每次都创建布局实例*/
         }
 
         //绑定ViewHolder与item
